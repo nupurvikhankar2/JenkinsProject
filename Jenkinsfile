@@ -10,6 +10,7 @@ pipeline{
           steps{
             bat 'mvn deploy'
           }
+        }
           stage('Consolidate result'){
             steps{
               input ("Do you want to proceed")
