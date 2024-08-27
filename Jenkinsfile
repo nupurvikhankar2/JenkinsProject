@@ -6,17 +6,10 @@ pipeline{
             bat 'mvn install'
           }
         }
-        stage('deploy'){
+        stage('package'){
           steps{
-            bat 'mvn deploy'
+            bat 'mvn package'
           }
         }
-          stage('Consolidate result'){
-            steps{
-              input ("Do you want to proceed")
-               junit '**/target/surefire-reports/TEST-*.xml'
-                    archiveArtifacts 'target/*.jar'
-            }
-          }
         }
       }
